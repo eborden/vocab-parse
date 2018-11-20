@@ -1,0 +1,34 @@
+name:                vocab-parse
+version:             0.0.0.0
+github:              "eborden/vocab-parse"
+license:             BSD3
+author:              "Evan Rutledge Borden"
+maintainer:          "evan@evan-borden.com"
+copyright:           "2018 Evan Rutledge Borden"
+
+extra-source-files:
+- README.md
+- ChangeLog.md
+
+description: Parse a sentence into terms, selecting the longest vocabulary word.
+
+dependencies:
+- base >= 4.7 && < 5
+- containers
+- bytestring
+- bytestring-trie
+- text
+- deepseq
+
+ghc-options: -O2
+
+library:
+  source-dirs: src
+
+benchmarks:
+  vocab-parse-test:
+    main: Main.hs
+    source-dirs: benchmark
+    dependencies:
+    - vocab-parse
+    - criterion
