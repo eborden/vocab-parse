@@ -26,9 +26,9 @@ parse glossary =
     | otherwise = case match glossary str of
       Nothing ->
         let
-          vocab = BS.take 1 str
+          novocab = BS.take 1 str
           rest = BS.drop 1 str
-        in NoVocab vocab : go rest
+        in NoVocab novocab : go rest
       Just (vocab, _, rest) -> Vocab vocab : go rest
 
 collapse :: Monoid a => [SentenceFragment a] -> [SentenceFragment a]
